@@ -1,18 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_auth_app/presentation/resource/string_manager.dart';
+import 'package:twitter_auth_app/presentation/resource/value_manager.dart';
 
-class LoginContent extends StatelessWidget {
+class LoginContent extends StatefulWidget {
   const LoginContent({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Login Screen",
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
+  State<LoginContent> createState() => _LoginContentState();
 }
+
+class _LoginContentState extends State<LoginContent> {
+  @override
+  Widget build(BuildContext context) {
+    return _getContentWidget();
+  }
+
+  //----------------------------------------------------------------------------
+  // All content
+  //----------------------------------------------------------------------------
+
+  Widget _getContentWidget() => Padding(
+    padding: const EdgeInsets.only(
+      left: ValueManager.v16,
+      right: ValueManager.v16,
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _loginTitleWidget(),
+        const SizedBox(
+          height: ValueManager.v20,
+        ),
+      ],
+    ),
+  );
+
+  //----------------------------------------------------------------------------
+  // Title
+  //----------------------------------------------------------------------------
+
+  Widget _loginTitleWidget() => Padding(
+    padding: const EdgeInsets.only(
+      left: ValueManager.v16,
+      right: ValueManager.v16,
+    ),
+    child: Text(
+      StringManager.logInTitle,
+      style: Theme.of(context).textTheme.displayMedium,
+    ),
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
