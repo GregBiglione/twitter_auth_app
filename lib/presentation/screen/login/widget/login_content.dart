@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:twitter_auth_app/presentation/resource/color_manager.dart';
@@ -6,6 +5,8 @@ import 'package:twitter_auth_app/presentation/resource/font_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/string_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/style_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/value_manager.dart';
+import 'package:twitter_auth_app/presentation/widget/padding_widget.dart';
+import 'package:twitter_auth_app/presentation/widget/title_widget.dart';
 
 import '../../../../app/constant.dart';
 
@@ -26,36 +27,19 @@ class _LoginContentState extends State<LoginContent> {
   // All content
   //----------------------------------------------------------------------------
 
-  Widget _getContentWidget() => Padding(
-    padding: const EdgeInsets.only(
-      left: ValueManager.v16,
-      right: ValueManager.v16,
-    ),
-    child: Column(
+  Widget _getContentWidget() => PaddingWidget(
+    widget: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _loginTitleWidget(),
+        const TitleWidget(
+          title: StringManager.logInTitle,
+        ),
         const SizedBox(
           height: ValueManager.v20,
         ),
         _twitterButtonWidget()
       ],
-    ),
-  );
-
-  //----------------------------------------------------------------------------
-  // Title
-  //----------------------------------------------------------------------------
-
-  Widget _loginTitleWidget() => Padding(
-    padding: const EdgeInsets.only(
-      left: ValueManager.v16,
-      right: ValueManager.v16,
-    ),
-    child: Text(
-      StringManager.logInTitle,
-      style: Theme.of(context).textTheme.displayMedium,
     ),
   );
 
