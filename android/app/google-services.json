@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1026816905554",
+    "project_id": "twitterauthapp",
+    "storage_bucket": "twitterauthapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026816905554:android:91b41e4b3bd7d083712a8b",
+        "android_client_info": {
+          "package_name": "com.example.twitter_auth_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk2ElwyJdKGrxxhIdoG5uutEJ9VDC6ZRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
