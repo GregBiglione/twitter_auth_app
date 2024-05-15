@@ -50,7 +50,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDk2ElwyJdKGrxxhIdoG5uutEJ9VDC6ZRU',
+    apiKey: 'AIzaSyBZzn5Svz6uIdd-F53mqlla3UZgTkJSjRE',
     appId: '1:1026816905554:android:91b41e4b3bd7d083712a8b',
     messagingSenderId: '1026816905554',
     projectId: 'twitterauthapp',
@@ -58,11 +58,12 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD4Jo0eQQEPmG-UQxYBvbGkRrdzCqwFGRw',
+    apiKey: 'AIzaSyCPaFmBgBBqclSulT1y25t_6wHbZkYoMwU',
     appId: '1:1026816905554:ios:f5c31da6a950eb68712a8b',
     messagingSenderId: '1026816905554',
     projectId: 'twitterauthapp',
     storageBucket: 'twitterauthapp.appspot.com',
     iosBundleId: 'com.example.twitterAuthApp',
   );
+
 }
