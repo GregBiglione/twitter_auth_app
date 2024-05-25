@@ -5,4 +5,7 @@ class StringManager {
   // Login screen --------------------------------------------------------------
   static const String logInTitle = "Log in";
   static const String twitterButtonTitle = "Log in with Twitter";
+
+  // Error message -------------------------------------------------------------
+  static const String unknownError = "Unknown error";
 }
