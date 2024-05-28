@@ -5,10 +5,12 @@ import 'package:twitter_auth_app/presentation/widget/padding_widget.dart';
 import 'package:twitter_auth_app/presentation/widget/title_widget.dart';
 import 'package:twitter_auth_app/presentation/widget/twitter_button_widget.dart';
 
-import '../../../../app/constant.dart';
+import '../login_view_model.dart';
 
 class LoginContent extends StatefulWidget {
-  const LoginContent({super.key});
+  final LoginViewModel viewModel;
+
+  const LoginContent({super.key, required this.viewModel});
 
   @override
   State<LoginContent> createState() => _LoginContentState();
@@ -37,7 +39,7 @@ class _LoginContentState extends State<LoginContent> {
         ),
         TwitterButtonWidget(
           onPressed: () {
-            logger.i("Twitter button clicked");
+            widget.viewModel.twitterLogin();
           },
         ),
       ],
