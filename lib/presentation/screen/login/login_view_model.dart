@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:twitter_auth_app/app/function.dart';
 import 'package:twitter_auth_app/domain/usecase/auth/auth_usecase.dart';
 
 import '../../../domain/utils/state_render.dart';
@@ -14,6 +15,7 @@ class LoginViewModel extends ChangeNotifier {
 
   // Getters -------------------------------------------------------------------
   Stream<StateRender> get response => _responseController.stream;
+  Timer? timer;
 
   //----------------------------------------------------------------------------
   // Twitter login
@@ -24,6 +26,7 @@ class LoginViewModel extends ChangeNotifier {
     // Loading -----------------------------------------------------------------
     _responseController.add(Loading());
     // Login -------------------------------------------------------------------
+    removeLoadingScreen(timer, 4, _responseController);
     final data = await _authUseCase.twitterLoginUseCase.launch();
     _responseController.add(data);
   }
