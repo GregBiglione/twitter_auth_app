@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 import 'package:twitter_auth_app/presentation/resource/color_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/route_manager.dart';
+
+import '../domain/utils/state_render.dart';
 
 // Error toast -----------------------------------------------------------------
 
@@ -25,3 +29,13 @@ void goToHomeScreen(BuildContext context) => WidgetsBinding.instance
         Routes.homeRoute,
       );
 });
+
+// Remove loading screen -------------------------------------------------------
+
+void removeLoadingScreen(Timer? timer, int duration, 
+StreamController streamController) {
+  timer = Timer(
+    Duration(seconds: duration), 
+    () => streamController.add(Init()),
+  );
+}
