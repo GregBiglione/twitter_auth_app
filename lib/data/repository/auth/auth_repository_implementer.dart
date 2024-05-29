@@ -33,4 +33,7 @@ class AuthRepositoryImplementer extends AuthRepository {
       return Error(e.message ?? StringManager.unknownError);
     }
   }
+
+  @override
+  User? get user => _firebaseAuth.currentUser;
 }
