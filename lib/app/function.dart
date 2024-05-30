@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
+import 'package:twitter_auth_app/app/di/injection.dart';
+import 'package:twitter_auth_app/domain/usecase/auth/auth_usecase.dart';
+import 'package:twitter_auth_app/main.dart';
 import 'package:twitter_auth_app/presentation/resource/color_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/route_manager.dart';
 
@@ -39,3 +42,13 @@ StreamController streamController) {
     () => streamController.add(Init()),
   );
 }
+
+// Go to main after logout -----------------------------------------------------
+
+void logoutNavigation(BuildContext context) => Navigator.pushAndRemoveUntil(
+  context,
+  MaterialPageRoute(
+    builder: (context) => MyApp(getIt<AuthUseCase>()),
+  ),
+  (route) => false,
+);
