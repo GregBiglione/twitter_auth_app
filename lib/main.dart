@@ -4,6 +4,7 @@ import 'package:twitter_auth_app/app/di/injection.dart';
 import 'package:twitter_auth_app/domain/usecase/auth/auth_usecase.dart';
 import 'package:twitter_auth_app/presentation/resource/route_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/theme_manager.dart';
+import 'package:twitter_auth_app/presentation/screen/home/home_view_model.dart';
 import 'package:twitter_auth_app/presentation/screen/login/login_view_model.dart';
 
 import 'app/constant.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => LoginViewModel(getIt<AuthUseCase>()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HomeViewModel(getIt<AuthUseCase>()),
         ),
       ],
       child: MaterialApp(
