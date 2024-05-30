@@ -9,6 +9,8 @@ import 'package:twitter_auth_app/presentation/resource/string_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/style_manager.dart';
 import 'package:twitter_auth_app/presentation/resource/value_manager.dart';
 
+import '../../../app/app_preferences.dart';
+import '../../../app/di/injection.dart';
 import '../../resource/font_manager.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,16 +22,27 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Timer? _timer;
+  final AppPreferences _appPreferences = getIt<AppPreferences>();
 
   //----------------------------------------------------------------------------
-  // Go to Login Screen
+  // Go to Login/Home Screen
   //----------------------------------------------------------------------------
 
   _goToLoginScreen() {
-    Navigator.pushReplacementNamed(
-      context,
-      Routes.loginRoute,
-    );
+    _appPreferences.isUserLogged().then((value) {
+      if(value == false) {
+        Navigator.pushReplacementNamed(
+          context,
+          Routes.loginRoute,
+        );
+      }
+      else {
+        Navigator.pushReplacementNamed(
+          context,
+          Routes.homeRoute,
+        );
+      }
+    });
   }
 
   //----------------------------------------------------------------------------
