@@ -42,4 +42,10 @@ class AuthRepositoryImplementer extends AuthRepository {
 
   @override
   User? get user => _firebaseAuth.currentUser;
+
+  @override
+  Future<void> logout() async {
+    _appPreferences.logout();
+    _firebaseAuth.signOut();
+  }
 }
