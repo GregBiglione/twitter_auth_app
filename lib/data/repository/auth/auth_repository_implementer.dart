@@ -1,9 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:twitter_auth_app/app/app_preferences.dart';
 import 'package:twitter_auth_app/app/secret.dart';
 import 'package:twitter_auth_app/domain/repository/auth/auth_repository.dart';
 import 'package:twitter_auth_app/domain/utils/state_render.dart';
 import 'package:twitter_auth_app/presentation/resource/string_manager.dart';
 import 'package:twitter_login/twitter_login.dart';
+
+import '../../../app/di/injection.dart';
+
+final AppPreferences _appPreferences = getIt<AppPreferences>();
 
 class AuthRepositoryImplementer extends AuthRepository {
   final FirebaseAuth _firebaseAuth;
@@ -26,6 +31,7 @@ class AuthRepositoryImplementer extends AuthRepository {
       );
 
       final userCredential = _firebaseAuth.signInWithCredential(credential);
+      _appPreferences.setUserLogged();
 
       return Success(credential);
     }
