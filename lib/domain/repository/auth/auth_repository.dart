@@ -5,4 +5,5 @@ import '../../utils/state_render.dart';
 abstract class AuthRepository {
   User? get user;
   Future<StateRender> twitterLogin();
+  Future<void> logout();
 }
