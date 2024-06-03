@@ -15,9 +15,10 @@ final AppPreferences _appPreferences = getIt<AppPreferences>();
 
 class AuthRepositoryImplementer extends AuthRepository {
   final FirebaseAuth _firebaseAuth;
+  final FirebaseFirestore _firebaseFirestore;
   final CollectionReference _usersCollection;
 
-  AuthRepositoryImplementer(this._firebaseAuth,
+  AuthRepositoryImplementer(this._firebaseAuth, this._firebaseFirestore,
       @Named(USER) this._usersCollection);
 
   @override
@@ -37,6 +38,12 @@ class AuthRepositoryImplementer extends AuthRepository {
 
       final userCredential = _firebaseAuth.signInWithCredential(credential);
       _appPreferences.setUserLogged();
+
+      userCredential.then((value) {
+        logger.e("Twitter user info: ${value.additionalUserInfo}");
+
+        String name = value.additionalUserInfo!.profile!["name"];
+      });
 
       return Success(credential);
     }
