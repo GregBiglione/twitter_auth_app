@@ -25,13 +25,15 @@ void errorToast(BuildContext context, String message) => toastification.show(
 
 // Go to home screen -----------------------------------------------------------
 
-void goToHomeScreen(BuildContext context) => WidgetsBinding.instance
-    .addPostFrameCallback((timeStamp) {
+void goToHomeScreen(BuildContext context) => Future.delayed(
+    const Duration(seconds: 2),
+    () {
       Navigator.pushReplacementNamed(
         context,
         Routes.homeRoute,
       );
-});
+    }
+);
 
 // Remove loading screen -------------------------------------------------------
 
