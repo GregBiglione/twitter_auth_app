@@ -80,6 +80,7 @@ flutter:
   assets:
     - assets/images/twitter.png
     - assets/images/x-logo.png
+    - assets/images/default_avatar.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
