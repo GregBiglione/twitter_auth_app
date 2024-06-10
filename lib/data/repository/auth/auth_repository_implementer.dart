@@ -42,6 +42,7 @@ class AuthRepositoryImplementer extends AuthRepository {
 
       userCredential.then((value) async {
         String name = value.additionalUserInfo!.profile!["name"];
+        String photo = value.additionalUserInfo!.profile!["profile_image_url"];
 
         final DocumentSnapshot ds = await _firebaseFirestore
             .collection(USER)
