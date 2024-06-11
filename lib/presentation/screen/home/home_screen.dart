@@ -52,13 +52,15 @@ class HomeScreen extends StatelessWidget {
             else if(response is Error) {
               final data = response as Error;
 
-              return Text(
-                StringManager.error + data.error,
-                style: getBoldStyle(
-                  fontSize: FontSize.s16,
-                  color: ColorManager.error,
+              return Center(
+                child: Text(
+                  StringManager.error + data.error,
+                  style: getBoldStyle(
+                    fontSize: FontSize.s16,
+                    color: ColorManager.error,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
-                overflow: TextOverflow.ellipsis,
               );
             }
 
